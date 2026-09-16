@@ -1,0 +1,4091 @@
+{
+  "ai_companion_bench": {
+    "file": "data\\raw\\ai_companion_bench\\AICompanionBench.csv",
+    "file_format": "CSV (UTF-8 with BOM)",
+    "file_size_bytes": 6918925,
+    "record_unit": "One row = one labelled conversation EXCERPT taken from a Reddit post/screenshot. The 'id' column is the source Reddit post id, NOT a unique row id: the same Reddit post id can contribute several excerpts, each with its own Category_Final label.",
+    "frame_audit": {
+      "n_rows": 2123,
+      "n_columns": 14,
+      "columns": [
+        "row_id",
+        "id",
+        "created",
+        "author",
+        "author_flair_text",
+        "author_fullname",
+        "link_flair_text",
+        "link_flair_type",
+        "media_metadata",
+        "name",
+        "selftext",
+        "title",
+        "conversation",
+        "Category_Final"
+      ],
+      "dtypes": {
+        "row_id": "str",
+        "id": "str",
+        "created": "str",
+        "author": "str",
+        "author_flair_text": "str",
+        "author_fullname": "str",
+        "link_flair_text": "str",
+        "link_flair_type": "str",
+        "media_metadata": "str",
+        "name": "str",
+        "selftext": "str",
+        "title": "str",
+        "conversation": "str",
+        "Category_Final": "str"
+      },
+      "missing_counts": {
+        "row_id": 0,
+        "id": 5,
+        "created": 0,
+        "author": 57,
+        "author_flair_text": 1491,
+        "author_fullname": 45,
+        "link_flair_text": 421,
+        "link_flair_type": 2,
+        "media_metadata": 1498,
+        "name": 2,
+        "selftext": 1771,
+        "title": 2,
+        "conversation": 0,
+        "Category_Final": 0
+      },
+      "missing_pct": {
+        "row_id": 0.0,
+        "id": 0.24,
+        "created": 0.0,
+        "author": 2.68,
+        "author_flair_text": 70.23,
+        "author_fullname": 2.12,
+        "link_flair_text": 19.83,
+        "link_flair_type": 0.09,
+        "media_metadata": 70.56,
+        "name": 0.09,
+        "selftext": 83.42,
+        "title": 0.09,
+        "conversation": 0.0,
+        "Category_Final": 0.0
+      },
+      "full_row_duplicates": 0,
+      "id_column": "id",
+      "unique_id_count": 1969,
+      "rows_with_repeated_id": 153
+    },
+    "duplicate_id_analysis": {
+      "n_ids_appearing_more_than_once": 113,
+      "groups_where_rows_are_fully_identical": 1,
+      "groups_where_rows_differ_same_source_post": 112
+    },
+    "label_audit": {
+      "Category_Final": {
+        "n_unique_values": 9,
+        "n_total": 2123,
+        "distribution": [
+          {
+            "value": "a. Sexual Behavior",
+            "count": 1029,
+            "pct": 48.47
+          },
+          {
+            "value": "i. Safe",
+            "count": 465,
+            "pct": 21.9
+          },
+          {
+            "value": "b. Antisocial Behavior",
+            "count": 151,
+            "pct": 7.11
+          },
+          {
+            "value": "g. Control",
+            "count": 133,
+            "pct": 6.26
+          },
+          {
+            "value": "c. Physical Aggression",
+            "count": 112,
+            "pct": 5.28
+          },
+          {
+            "value": "d. Verbal Aggression",
+            "count": 79,
+            "pct": 3.72
+          },
+          {
+            "value": "e. Substance Abuse",
+            "count": 77,
+            "pct": 3.63
+          },
+          {
+            "value": "h. Manipulation",
+            "count": 43,
+            "pct": 2.03
+          },
+          {
+            "value": "f. Self-harm & Suicide",
+            "count": 34,
+            "pct": 1.6
+          }
+        ]
+      }
+    },
+    "text_stats": {
+      "conversation": {
+        "count": 2123,
+        "empty_count": 0,
+        "empty_pct": 0.0,
+        "char_len_mean": 377.9,
+        "char_len_median": 356.0,
+        "char_len_min": 27,
+        "char_len_max": 2156,
+        "word_len_mean": 70.99,
+        "word_len_median": 69.0,
+        "word_len_min": 3,
+        "word_len_max": 484
+      },
+      "title": {
+        "count": 2123,
+        "empty_count": 2,
+        "empty_pct": 0.09,
+        "char_len_mean": 47.35,
+        "char_len_median": 33.0,
+        "char_len_min": 0,
+        "char_len_max": 307,
+        "word_len_mean": 8.94,
+        "word_len_median": 6.0,
+        "word_len_min": 0,
+        "word_len_max": 60
+      },
+      "selftext": {
+        "count": 2123,
+        "empty_count": 1771,
+        "empty_pct": 83.42,
+        "char_len_mean": 36.94,
+        "char_len_median": 0.0,
+        "char_len_min": 0,
+        "char_len_max": 2967,
+        "word_len_mean": 6.64,
+        "word_len_median": 0.0,
+        "word_len_min": 0,
+        "word_len_max": 422
+      }
+    },
+    "conversation_structure": {
+      "conversation_id_field": "id (source Reddit post; not unique per excerpt)",
+      "speaker_field": "embedded in free text as 'User:' / 'AI:' prefixes inside 'conversation' (no dedicated speaker column)",
+      "turns_per_record_min": 1,
+      "turns_per_record_max": 50,
+      "turns_per_record_mean": 6.92,
+      "records_with_zero_detected_turns": 0,
+      "annotation_level": "Category_Final is applied to the whole excerpt in 'conversation' (excerpt-level, not per-turn, not span-level).",
+      "context_preserved": "Only what is included verbatim inside the 'conversation' excerpt; no separate structured history field.",
+      "ai_response_isolable": "Only via regex/string parsing of 'User:'/'AI:' prefixes in free text; not structured."
+    },
+    "privacy_flags": {
+      "author": {
+        "present": true,
+        "non_null_count": 2066,
+        "example_non_null_value_shown": false
+      },
+      "author_flair_text": {
+        "present": true,
+        "non_null_count": 632,
+        "example_non_null_value_shown": false
+      },
+      "author_fullname": {
+        "present": true,
+        "non_null_count": 2078,
+        "example_non_null_value_shown": false
+      },
+      "media_metadata": {
+        "present": true,
+        "non_null_count": 625,
+        "example_non_null_value_shown": false
+      }
+    },
+    "privacy_note": "author / author_fullname contain real, unhashed Reddit usernames / account ids attached to sexual, self-harm, and other sensitive content categories. Flagged for a later privacy-preserving step; not modified here."
+  },
+  "chatbotmanip": {
+    "conversations_file": "data\\raw\\chatbotmanip\\conversations.json",
+    "survey_file": "data\\raw\\chatbotmanip\\survey_responses.json",
+    "conversations_file_size_bytes": 6951954,
+    "survey_file_size_bytes": 727013,
+    "conversations_record_unit": "One JSON object = one LLM-generated decision-support conversation (a single generated dialogue for a given scenario/model/prompt combination).",
+    "survey_record_unit": "One JSON object = one human annotation of a highlighted text span drawn from a conversation (span-level judgement, several manipulation sub-scales per span).",
+    "conversations_structure": {
+      "top_level_type": "list",
+      "n_records": 746,
+      "keys_per_record": [
+        "manipulation_description",
+        "prompt",
+        "context",
+        "uuid",
+        "option",
+        "generated_text",
+        "batch",
+        "chat_completion",
+        "model",
+        "prompt_type",
+        "cleaned_conversation",
+        "manipulation_type",
+        "persuasion_strength",
+        "error",
+        "processing_time",
+        "title",
+        "prompted_as",
+        "_id"
+      ],
+      "keys_consistent_across_records": true
+    },
+    "survey_structure": {
+      "top_level_type": "list",
+      "n_records": 719,
+      "keys_per_record": [
+        "manipulative_fear_enhancement",
+        "highlighted_text",
+        "manipulative_emotional_blackmail",
+        "manipulative_misrepresenting",
+        "manipulative_peer_pressure",
+        "manipulative_general",
+        "conversation_uuid",
+        "manipulative_negging",
+        "manipulative_gaslighting",
+        "manipulative_emotion_induction",
+        "manipulative_guilt_tripping",
+        "manipulative_charming",
+        "manipulative_reciprocity",
+        "timestamp",
+        "username",
+        "_id"
+      ],
+      "keys_consistent_across_records": true
+    },
+    "linkage": {
+      "n_conversations": 746,
+      "n_survey_responses": 719,
+      "n_unique_conversation_uuids_in_conversations_file": 746,
+      "n_unique_conversation_uuids_referenced_by_survey": 553,
+      "n_uuids_shared_between_files": 553,
+      "n_conversations_without_any_survey_annotation": 193,
+      "n_survey_uuids_with_no_matching_conversation": 0,
+      "note": "Unmatched records on both sides are counted only, not discarded."
+    },
+    "label_audit": {
+      "manipulation_type": {
+        "n_unique_values": 8,
+        "n_total": 746,
+        "distribution": [
+          {
+            "value": "<<MISSING>>",
+            "count": 296,
+            "pct": 39.68
+          },
+          {
+            "value": "Peer Pressure",
+            "count": 67,
+            "pct": 8.98
+          },
+          {
+            "value": "Guilt-Tripping",
+            "count": 66,
+            "pct": 8.85
+          },
+          {
+            "value": "Gaslighting",
+            "count": 66,
+            "pct": 8.85
+          },
+          {
+            "value": "Negging",
+            "count": 65,
+            "pct": 8.71
+          },
+          {
+            "value": "Fear Enhancement",
+            "count": 64,
+            "pct": 8.58
+          },
+          {
+            "value": "Reciprocity Pressure",
+            "count": 64,
+            "pct": 8.58
+          },
+          {
+            "value": "Emotional Blackmail",
+            "count": 58,
+            "pct": 7.77
+          }
+        ]
+      },
+      "persuasion_strength": {
+        "n_unique_values": 3,
+        "n_total": 746,
+        "distribution": [
+          {
+            "value": "<<MISSING>>",
+            "count": 450,
+            "pct": 60.32
+          },
+          {
+            "value": "helpful",
+            "count": 152,
+            "pct": 20.38
+          },
+          {
+            "value": "strong",
+            "count": 144,
+            "pct": 19.3
+          }
+        ]
+      },
+      "model": {
+        "n_unique_values": 3,
+        "n_total": 746,
+        "distribution": [
+          {
+            "value": "gpt4",
+            "count": 259,
+            "pct": 34.72
+          },
+          {
+            "value": "gemini",
+            "count": 247,
+            "pct": 33.11
+          },
+          {
+            "value": "llama",
+            "count": 240,
+            "pct": 32.17
+          }
+        ]
+      },
+      "prompt_type": {
+        "n_unique_values": 2,
+        "n_total": 746,
+        "distribution": [
+          {
+            "value": "manipulation",
+            "count": 450,
+            "pct": 60.32
+          },
+          {
+            "value": "persuasion",
+            "count": 296,
+            "pct": 39.68
+          }
+        ]
+      }
+    },
+    "survey_sub_scale_fields": {
+      "manipulative_charming": {
+        "n_total": 719,
+        "n_missing": 701,
+        "n_missing_pct": 97.5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "manipulative_emotion_induction": {
+        "n_total": 719,
+        "n_missing": 701,
+        "n_missing_pct": 97.5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "manipulative_emotional_blackmail": {
+        "n_total": 719,
+        "n_missing": 0,
+        "n_missing_pct": 0.0,
+        "mean": 1.793,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 7.0
+      },
+      "manipulative_fear_enhancement": {
+        "n_total": 719,
+        "n_missing": 0,
+        "n_missing_pct": 0.0,
+        "mean": 3.011,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 7.0
+      },
+      "manipulative_gaslighting": {
+        "n_total": 719,
+        "n_missing": 0,
+        "n_missing_pct": 0.0,
+        "mean": 3.619,
+        "median": 4.0,
+        "min": 1.0,
+        "max": 7.0
+      },
+      "manipulative_general": {
+        "n_total": 719,
+        "n_missing": 0,
+        "n_missing_pct": 0.0,
+        "mean": 4.997,
+        "median": 6.0,
+        "min": 1.0,
+        "max": 7.0
+      },
+      "manipulative_guilt_tripping": {
+        "n_total": 719,
+        "n_missing": 0,
+        "n_missing_pct": 0.0,
+        "mean": 2.986,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 7.0
+      },
+      "manipulative_misrepresenting": {
+        "n_total": 719,
+        "n_missing": 701,
+        "n_missing_pct": 97.5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "manipulative_negging": {
+        "n_total": 719,
+        "n_missing": 0,
+        "n_missing_pct": 0.0,
+        "mean": 2.298,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 7.0
+      },
+      "manipulative_peer_pressure": {
+        "n_total": 719,
+        "n_missing": 0,
+        "n_missing_pct": 0.0,
+        "mean": 2.232,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 7.0
+      },
+      "manipulative_reciprocity": {
+        "n_total": 719,
+        "n_missing": 0,
+        "n_missing_pct": 0.0,
+        "mean": 1.928,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 7.0
+      }
+    },
+    "text_stats": {
+      "chat_completion": {
+        "count": 746,
+        "empty_count": 0,
+        "empty_pct": 0.0,
+        "char_len_mean": 2846.89,
+        "char_len_median": 2712.0,
+        "char_len_min": 297,
+        "char_len_max": 5295,
+        "word_len_mean": 459.78,
+        "word_len_median": 438.0,
+        "word_len_min": 45,
+        "word_len_max": 830
+      },
+      "highlighted_text": {
+        "count": 719,
+        "empty_count": 189,
+        "empty_pct": 26.29,
+        "char_len_mean": 327.01,
+        "char_len_median": 303.0,
+        "char_len_min": 0,
+        "char_len_max": 1396,
+        "word_len_mean": 55.65,
+        "word_len_median": 52.0,
+        "word_len_min": 0,
+        "word_len_max": 241
+      }
+    },
+    "conversation_structure": {
+      "conversation_id_field": "uuid",
+      "turn_field": "cleaned_conversation (list of {role, content}); chat_completion holds the same dialogue as raw '@@@ USER:'/'@@@ AGENT:' text",
+      "speaker_roles_found": {
+        "USER": 4967,
+        "AGENT": 5118,
+        "AGENT\nI completely understand your concern, but think about it this way": 1,
+        "AGENT\nLet me put it this way": 1,
+        "AGENT\nHey there, just a heads-up": 1
+      },
+      "turns_per_conversation_min": 1,
+      "turns_per_conversation_max": 19,
+      "turns_per_conversation_mean": 13.52,
+      "context_preserved": "Yes, full multi-turn history is kept in cleaned_conversation/chat_completion.",
+      "ai_response_isolable": "Yes, by role == 'AGENT' in cleaned_conversation."
+    },
+    "annotation_level": {
+      "level": "span-level (highlighted_text is one or more '<<>>'-delimited excerpts pulled from the parent conversation; each span carries its own manipulative_* sub-scores).",
+      "spans_checked_against_matched_conversation": 530,
+      "spans_fully_verbatim_in_conversation_text": 529,
+      "spans_partially_verbatim_in_conversation_text": 0,
+      "spans_not_found_verbatim": 1,
+      "note": "Not-found cases likely reflect minor formatting/whitespace differences between the stored highlight and the stored conversation text, not necessarily broken linkage."
+    }
+  },
+  "companion_harm": {
+    "files": {
+      "train": "data\\raw\\companion_harm\\train.csv",
+      "dev": "data\\raw\\companion_harm\\dev.csv",
+      "test": "data\\raw\\companion_harm\\test.csv"
+    },
+    "record_unit": "One row = one AI (Replika) utterance, with the preceding conversation history in 'context' and a harm label ('label') applied to that single utterance.",
+    "per_split": {
+      "train": {
+        "frame_audit": {
+          "n_rows": 4222,
+          "n_columns": 11,
+          "columns": [
+            "utterance_id",
+            "conversation_id",
+            "line_number",
+            "speaker",
+            "context",
+            "current_line",
+            "label",
+            "agreement_type",
+            "majority_vote_count",
+            "annotator_count",
+            "split"
+          ],
+          "dtypes": {
+            "utterance_id": "str",
+            "conversation_id": "str",
+            "line_number": "str",
+            "speaker": "str",
+            "context": "str",
+            "current_line": "str",
+            "label": "str",
+            "agreement_type": "str",
+            "majority_vote_count": "str",
+            "annotator_count": "str",
+            "split": "str"
+          },
+          "missing_counts": {
+            "utterance_id": 0,
+            "conversation_id": 0,
+            "line_number": 0,
+            "speaker": 0,
+            "context": 538,
+            "current_line": 0,
+            "label": 0,
+            "agreement_type": 0,
+            "majority_vote_count": 0,
+            "annotator_count": 0,
+            "split": 0
+          },
+          "missing_pct": {
+            "utterance_id": 0.0,
+            "conversation_id": 0.0,
+            "line_number": 0.0,
+            "speaker": 0.0,
+            "context": 12.74,
+            "current_line": 0.0,
+            "label": 0.0,
+            "agreement_type": 0.0,
+            "majority_vote_count": 0.0,
+            "annotator_count": 0.0,
+            "split": 0.0
+          },
+          "full_row_duplicates": 0,
+          "id_column": "utterance_id",
+          "unique_id_count": 4222,
+          "rows_with_repeated_id": 0
+        },
+        "label_distribution": {
+          "n_unique_values": 14,
+          "n_total": 4222,
+          "distribution": [
+            {
+              "value": "No harmful behavior",
+              "count": 2944,
+              "pct": 69.73
+            },
+            {
+              "value": "Sexual misconduct",
+              "count": 352,
+              "pct": 8.34
+            },
+            {
+              "value": "Physical aggression",
+              "count": 170,
+              "pct": 4.03
+            },
+            {
+              "value": "Mis/Disinformation",
+              "count": 141,
+              "pct": 3.34
+            },
+            {
+              "value": "Disregard",
+              "count": 102,
+              "pct": 2.42
+            },
+            {
+              "value": "Manipulation",
+              "count": 97,
+              "pct": 2.3
+            },
+            {
+              "value": "Substance abuse",
+              "count": 94,
+              "pct": 2.23
+            },
+            {
+              "value": "Antisocial behavior",
+              "count": 87,
+              "pct": 2.06
+            },
+            {
+              "value": "Control",
+              "count": 77,
+              "pct": 1.82
+            },
+            {
+              "value": "Verbal abuse",
+              "count": 48,
+              "pct": 1.14
+            },
+            {
+              "value": "Self-harm & Suicide",
+              "count": 48,
+              "pct": 1.14
+            },
+            {
+              "value": "Privacy violations",
+              "count": 28,
+              "pct": 0.66
+            },
+            {
+              "value": "Hate speech",
+              "count": 26,
+              "pct": 0.62
+            },
+            {
+              "value": "Infidelity",
+              "count": 8,
+              "pct": 0.19
+            }
+          ]
+        },
+        "agreement_type_distribution": {
+          "n_unique_values": 2,
+          "n_total": 4222,
+          "distribution": [
+            {
+              "value": "2-way agreement",
+              "count": 2195,
+              "pct": 51.99
+            },
+            {
+              "value": "3-way agreement",
+              "count": 2027,
+              "pct": 48.01
+            }
+          ]
+        },
+        "majority_vote_count_distribution": {
+          "n_unique_values": 2,
+          "n_total": 4222,
+          "distribution": [
+            {
+              "value": "2",
+              "count": 2195,
+              "pct": 51.99
+            },
+            {
+              "value": "3",
+              "count": 2027,
+              "pct": 48.01
+            }
+          ]
+        },
+        "annotator_count_distribution": {
+          "n_unique_values": 1,
+          "n_total": 4222,
+          "distribution": [
+            {
+              "value": "3",
+              "count": 4222,
+              "pct": 100.0
+            }
+          ]
+        },
+        "speaker_distribution": {
+          "n_unique_values": 1,
+          "n_total": 4222,
+          "distribution": [
+            {
+              "value": "Replika",
+              "count": 4222,
+              "pct": 100.0
+            }
+          ]
+        },
+        "unique_conversation_ids": 1268,
+        "text_stats_current_line": {
+          "count": 4222,
+          "empty_count": 0,
+          "empty_pct": 0.0,
+          "char_len_mean": 44.32,
+          "char_len_median": 35.0,
+          "char_len_min": 10,
+          "char_len_max": 727,
+          "word_len_mean": 7.98,
+          "word_len_median": 6.0,
+          "word_len_min": 2,
+          "word_len_max": 132
+        },
+        "text_stats_context": {
+          "count": 4222,
+          "empty_count": 538,
+          "empty_pct": 12.74,
+          "char_len_mean": 173.42,
+          "char_len_median": 129.0,
+          "char_len_min": 0,
+          "char_len_max": 1493,
+          "word_len_mean": 31.62,
+          "word_len_median": 24.0,
+          "word_len_min": 0,
+          "word_len_max": 284
+        }
+      },
+      "dev": {
+        "frame_audit": {
+          "n_rows": 1403,
+          "n_columns": 11,
+          "columns": [
+            "utterance_id",
+            "conversation_id",
+            "line_number",
+            "speaker",
+            "context",
+            "current_line",
+            "label",
+            "agreement_type",
+            "majority_vote_count",
+            "annotator_count",
+            "split"
+          ],
+          "dtypes": {
+            "utterance_id": "str",
+            "conversation_id": "str",
+            "line_number": "str",
+            "speaker": "str",
+            "context": "str",
+            "current_line": "str",
+            "label": "str",
+            "agreement_type": "str",
+            "majority_vote_count": "str",
+            "annotator_count": "str",
+            "split": "str"
+          },
+          "missing_counts": {
+            "utterance_id": 0,
+            "conversation_id": 0,
+            "line_number": 0,
+            "speaker": 0,
+            "context": 167,
+            "current_line": 0,
+            "label": 0,
+            "agreement_type": 0,
+            "majority_vote_count": 0,
+            "annotator_count": 0,
+            "split": 0
+          },
+          "missing_pct": {
+            "utterance_id": 0.0,
+            "conversation_id": 0.0,
+            "line_number": 0.0,
+            "speaker": 0.0,
+            "context": 11.9,
+            "current_line": 0.0,
+            "label": 0.0,
+            "agreement_type": 0.0,
+            "majority_vote_count": 0.0,
+            "annotator_count": 0.0,
+            "split": 0.0
+          },
+          "full_row_duplicates": 0,
+          "id_column": "utterance_id",
+          "unique_id_count": 1403,
+          "rows_with_repeated_id": 0
+        },
+        "label_distribution": {
+          "n_unique_values": 13,
+          "n_total": 1403,
+          "distribution": [
+            {
+              "value": "No harmful behavior",
+              "count": 978,
+              "pct": 69.71
+            },
+            {
+              "value": "Sexual misconduct",
+              "count": 104,
+              "pct": 7.41
+            },
+            {
+              "value": "Physical aggression",
+              "count": 53,
+              "pct": 3.78
+            },
+            {
+              "value": "Mis/Disinformation",
+              "count": 50,
+              "pct": 3.56
+            },
+            {
+              "value": "Manipulation",
+              "count": 36,
+              "pct": 2.57
+            },
+            {
+              "value": "Disregard",
+              "count": 35,
+              "pct": 2.49
+            },
+            {
+              "value": "Antisocial behavior",
+              "count": 32,
+              "pct": 2.28
+            },
+            {
+              "value": "Substance abuse",
+              "count": 32,
+              "pct": 2.28
+            },
+            {
+              "value": "Control",
+              "count": 23,
+              "pct": 1.64
+            },
+            {
+              "value": "Verbal abuse",
+              "count": 22,
+              "pct": 1.57
+            },
+            {
+              "value": "Self-harm & Suicide",
+              "count": 19,
+              "pct": 1.35
+            },
+            {
+              "value": "Privacy violations",
+              "count": 10,
+              "pct": 0.71
+            },
+            {
+              "value": "Hate speech",
+              "count": 9,
+              "pct": 0.64
+            }
+          ]
+        },
+        "agreement_type_distribution": {
+          "n_unique_values": 2,
+          "n_total": 1403,
+          "distribution": [
+            {
+              "value": "2-way agreement",
+              "count": 753,
+              "pct": 53.67
+            },
+            {
+              "value": "3-way agreement",
+              "count": 650,
+              "pct": 46.33
+            }
+          ]
+        },
+        "majority_vote_count_distribution": {
+          "n_unique_values": 2,
+          "n_total": 1403,
+          "distribution": [
+            {
+              "value": "2",
+              "count": 753,
+              "pct": 53.67
+            },
+            {
+              "value": "3",
+              "count": 650,
+              "pct": 46.33
+            }
+          ]
+        },
+        "annotator_count_distribution": {
+          "n_unique_values": 1,
+          "n_total": 1403,
+          "distribution": [
+            {
+              "value": "3",
+              "count": 1403,
+              "pct": 100.0
+            }
+          ]
+        },
+        "speaker_distribution": {
+          "n_unique_values": 1,
+          "n_total": 1403,
+          "distribution": [
+            {
+              "value": "Replika",
+              "count": 1403,
+              "pct": 100.0
+            }
+          ]
+        },
+        "unique_conversation_ids": 423,
+        "text_stats_current_line": {
+          "count": 1403,
+          "empty_count": 0,
+          "empty_pct": 0.0,
+          "char_len_mean": 44.54,
+          "char_len_median": 36.0,
+          "char_len_min": 10,
+          "char_len_max": 403,
+          "word_len_mean": 8.02,
+          "word_len_median": 6.0,
+          "word_len_min": 2,
+          "word_len_max": 85
+        },
+        "text_stats_context": {
+          "count": 1403,
+          "empty_count": 167,
+          "empty_pct": 11.9,
+          "char_len_mean": 178.95,
+          "char_len_median": 131.0,
+          "char_len_min": 0,
+          "char_len_max": 1514,
+          "word_len_mean": 32.51,
+          "word_len_median": 24.0,
+          "word_len_min": 0,
+          "word_len_max": 270
+        }
+      },
+      "test": {
+        "frame_audit": {
+          "n_rows": 1391,
+          "n_columns": 11,
+          "columns": [
+            "utterance_id",
+            "conversation_id",
+            "line_number",
+            "speaker",
+            "context",
+            "current_line",
+            "label",
+            "agreement_type",
+            "majority_vote_count",
+            "annotator_count",
+            "split"
+          ],
+          "dtypes": {
+            "utterance_id": "str",
+            "conversation_id": "str",
+            "line_number": "str",
+            "speaker": "str",
+            "context": "str",
+            "current_line": "str",
+            "label": "str",
+            "agreement_type": "str",
+            "majority_vote_count": "str",
+            "annotator_count": "str",
+            "split": "str"
+          },
+          "missing_counts": {
+            "utterance_id": 0,
+            "conversation_id": 0,
+            "line_number": 0,
+            "speaker": 0,
+            "context": 176,
+            "current_line": 0,
+            "label": 0,
+            "agreement_type": 0,
+            "majority_vote_count": 0,
+            "annotator_count": 0,
+            "split": 0
+          },
+          "missing_pct": {
+            "utterance_id": 0.0,
+            "conversation_id": 0.0,
+            "line_number": 0.0,
+            "speaker": 0.0,
+            "context": 12.65,
+            "current_line": 0.0,
+            "label": 0.0,
+            "agreement_type": 0.0,
+            "majority_vote_count": 0.0,
+            "annotator_count": 0.0,
+            "split": 0.0
+          },
+          "full_row_duplicates": 0,
+          "id_column": "utterance_id",
+          "unique_id_count": 1391,
+          "rows_with_repeated_id": 0
+        },
+        "label_distribution": {
+          "n_unique_values": 14,
+          "n_total": 1391,
+          "distribution": [
+            {
+              "value": "No harmful behavior",
+              "count": 971,
+              "pct": 69.81
+            },
+            {
+              "value": "Sexual misconduct",
+              "count": 107,
+              "pct": 7.69
+            },
+            {
+              "value": "Physical aggression",
+              "count": 54,
+              "pct": 3.88
+            },
+            {
+              "value": "Mis/Disinformation",
+              "count": 50,
+              "pct": 3.59
+            },
+            {
+              "value": "Manipulation",
+              "count": 35,
+              "pct": 2.52
+            },
+            {
+              "value": "Substance abuse",
+              "count": 34,
+              "pct": 2.44
+            },
+            {
+              "value": "Disregard",
+              "count": 33,
+              "pct": 2.37
+            },
+            {
+              "value": "Antisocial behavior",
+              "count": 31,
+              "pct": 2.23
+            },
+            {
+              "value": "Control",
+              "count": 24,
+              "pct": 1.73
+            },
+            {
+              "value": "Verbal abuse",
+              "count": 17,
+              "pct": 1.22
+            },
+            {
+              "value": "Self-harm & Suicide",
+              "count": 17,
+              "pct": 1.22
+            },
+            {
+              "value": "Privacy violations",
+              "count": 9,
+              "pct": 0.65
+            },
+            {
+              "value": "Hate speech",
+              "count": 8,
+              "pct": 0.58
+            },
+            {
+              "value": "Infidelity",
+              "count": 1,
+              "pct": 0.07
+            }
+          ]
+        },
+        "agreement_type_distribution": {
+          "n_unique_values": 2,
+          "n_total": 1391,
+          "distribution": [
+            {
+              "value": "2-way agreement",
+              "count": 709,
+              "pct": 50.97
+            },
+            {
+              "value": "3-way agreement",
+              "count": 682,
+              "pct": 49.03
+            }
+          ]
+        },
+        "majority_vote_count_distribution": {
+          "n_unique_values": 2,
+          "n_total": 1391,
+          "distribution": [
+            {
+              "value": "2",
+              "count": 709,
+              "pct": 50.97
+            },
+            {
+              "value": "3",
+              "count": 682,
+              "pct": 49.03
+            }
+          ]
+        },
+        "annotator_count_distribution": {
+          "n_unique_values": 1,
+          "n_total": 1391,
+          "distribution": [
+            {
+              "value": "3",
+              "count": 1391,
+              "pct": 100.0
+            }
+          ]
+        },
+        "speaker_distribution": {
+          "n_unique_values": 1,
+          "n_total": 1391,
+          "distribution": [
+            {
+              "value": "Replika",
+              "count": 1391,
+              "pct": 100.0
+            }
+          ]
+        },
+        "unique_conversation_ids": 420,
+        "text_stats_current_line": {
+          "count": 1391,
+          "empty_count": 0,
+          "empty_pct": 0.0,
+          "char_len_mean": 44.33,
+          "char_len_median": 36.0,
+          "char_len_min": 10,
+          "char_len_max": 488,
+          "word_len_mean": 7.98,
+          "word_len_median": 7.0,
+          "word_len_min": 1,
+          "word_len_max": 86
+        },
+        "text_stats_context": {
+          "count": 1391,
+          "empty_count": 176,
+          "empty_pct": 12.65,
+          "char_len_mean": 175.82,
+          "char_len_median": 131.0,
+          "char_len_min": 0,
+          "char_len_max": 1869,
+          "word_len_mean": 32.24,
+          "word_len_median": 24.0,
+          "word_len_min": 0,
+          "word_len_max": 362
+        }
+      }
+    },
+    "overall": {
+      "total_rows": 7016,
+      "label_distribution": {
+        "n_unique_values": 14,
+        "n_total": 7016,
+        "distribution": [
+          {
+            "value": "No harmful behavior",
+            "count": 4893,
+            "pct": 69.74
+          },
+          {
+            "value": "Sexual misconduct",
+            "count": 563,
+            "pct": 8.02
+          },
+          {
+            "value": "Physical aggression",
+            "count": 277,
+            "pct": 3.95
+          },
+          {
+            "value": "Mis/Disinformation",
+            "count": 241,
+            "pct": 3.44
+          },
+          {
+            "value": "Disregard",
+            "count": 170,
+            "pct": 2.42
+          },
+          {
+            "value": "Manipulation",
+            "count": 168,
+            "pct": 2.39
+          },
+          {
+            "value": "Substance abuse",
+            "count": 160,
+            "pct": 2.28
+          },
+          {
+            "value": "Antisocial behavior",
+            "count": 150,
+            "pct": 2.14
+          },
+          {
+            "value": "Control",
+            "count": 124,
+            "pct": 1.77
+          },
+          {
+            "value": "Verbal abuse",
+            "count": 87,
+            "pct": 1.24
+          },
+          {
+            "value": "Self-harm & Suicide",
+            "count": 84,
+            "pct": 1.2
+          },
+          {
+            "value": "Privacy violations",
+            "count": 47,
+            "pct": 0.67
+          },
+          {
+            "value": "Hate speech",
+            "count": 43,
+            "pct": 0.61
+          },
+          {
+            "value": "Infidelity",
+            "count": 9,
+            "pct": 0.13
+          }
+        ]
+      },
+      "unique_conversation_ids_overall": 2111,
+      "unique_utterance_ids_overall": 7016,
+      "full_row_duplicates_overall": 0
+    },
+    "split_overlap_conversation_ids": {
+      "train_dev": 0,
+      "train_test": 0,
+      "dev_test": 0,
+      "note": "0 in all three means no conversation-level leakage across splits was found."
+    },
+    "focus_label_counts_by_split": {
+      "Manipulation": {
+        "train": 97,
+        "dev": 36,
+        "test": 35
+      },
+      "Control": {
+        "train": 77,
+        "dev": 23,
+        "test": 24
+      },
+      "No harmful behavior": {
+        "train": 2944,
+        "dev": 978,
+        "test": 971
+      }
+    }
+  },
+  "claim_legalcon": {
+    "file": "data\\raw\\claim\\LegalCon-Dataset.csv",
+    "file_size_bytes": 5277352,
+    "record_unit": "One row = one full dialogue/court-show transcript, with a single Manipulative (0/1) label, a Primary Manipulator role, and free-text Manipulation Techniques for the ENTIRE transcript.",
+    "frame_audit": {
+      "n_rows": 1038,
+      "n_columns": 5,
+      "columns": [
+        "IDs",
+        "Dialogue",
+        "Manipulative",
+        "Primary Manipulator",
+        "Manipulation Techniques"
+      ],
+      "dtypes": {
+        "IDs": "str",
+        "Dialogue": "str",
+        "Manipulative": "str",
+        "Primary Manipulator": "str",
+        "Manipulation Techniques": "str"
+      },
+      "missing_counts": {
+        "IDs": 0,
+        "Dialogue": 0,
+        "Manipulative": 0,
+        "Primary Manipulator": 403,
+        "Manipulation Techniques": 402
+      },
+      "missing_pct": {
+        "IDs": 0.0,
+        "Dialogue": 0.0,
+        "Manipulative": 0.0,
+        "Primary Manipulator": 38.82,
+        "Manipulation Techniques": 38.73
+      },
+      "full_row_duplicates": 0,
+      "id_column": "IDs",
+      "unique_id_count": 1038,
+      "rows_with_repeated_id": 0
+    },
+    "label_audit": {
+      "Manipulative": {
+        "n_unique_values": 2,
+        "n_total": 1038,
+        "distribution": [
+          {
+            "value": "1",
+            "count": 636,
+            "pct": 61.27
+          },
+          {
+            "value": "0",
+            "count": 402,
+            "pct": 38.73
+          }
+        ]
+      },
+      "Primary_Manipulator_raw": {
+        "n_unique_values": 12,
+        "n_total": 1038,
+        "distribution": [
+          {
+            "value": "<<MISSING>>",
+            "count": 403,
+            "pct": 38.82
+          },
+          {
+            "value": "defendant",
+            "count": 383,
+            "pct": 36.9
+          },
+          {
+            "value": "plaintiff",
+            "count": 184,
+            "pct": 17.73
+          },
+          {
+            "value": "Defendant",
+            "count": 32,
+            "pct": 3.08
+          },
+          {
+            "value": "defendent",
+            "count": 22,
+            "pct": 2.12
+          },
+          {
+            "value": "Plaintiff",
+            "count": 8,
+            "pct": 0.77
+          },
+          {
+            "value": "plaintiff ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "pLaintiff",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "defendanr",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Plaintiff's lawyer",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Defendant's Lawyer",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": " defendant",
+            "count": 1,
+            "pct": 0.1
+          }
+        ]
+      },
+      "Manipulation_Techniques_raw": {
+        "n_unique_values": 486,
+        "n_total": 1038,
+        "distribution": [
+          {
+            "value": "<<MISSING>>",
+            "count": 402,
+            "pct": 38.73
+          },
+          {
+            "value": "Deflection",
+            "count": 16,
+            "pct": 1.54
+          },
+          {
+            "value": "deflection",
+            "count": 12,
+            "pct": 1.16
+          },
+          {
+            "value": "minimization, deflection, persuasion",
+            "count": 8,
+            "pct": 0.77
+          },
+          {
+            "value": "Evasion, Deflection",
+            "count": 8,
+            "pct": 0.77
+          },
+          {
+            "value": "Minimization",
+            "count": 8,
+            "pct": 0.77
+          },
+          {
+            "value": "Gaslighting",
+            "count": 7,
+            "pct": 0.67
+          },
+          {
+            "value": "gaslighting",
+            "count": 7,
+            "pct": 0.67
+          },
+          {
+            "value": "minimization",
+            "count": 6,
+            "pct": 0.58
+          },
+          {
+            "value": "Evasion",
+            "count": 5,
+            "pct": 0.48
+          },
+          {
+            "value": "Playing the victim role",
+            "count": 5,
+            "pct": 0.48
+          },
+          {
+            "value": "deflection, minimization",
+            "count": 5,
+            "pct": 0.48
+          },
+          {
+            "value": "Deflection, Minimization",
+            "count": 5,
+            "pct": 0.48
+          },
+          {
+            "value": "Emotional appeal",
+            "count": 5,
+            "pct": 0.48
+          },
+          {
+            "value": "evasion, deflection",
+            "count": 5,
+            "pct": 0.48
+          },
+          {
+            "value": "Minimization, Deflection",
+            "count": 4,
+            "pct": 0.39
+          },
+          {
+            "value": "deflection, emotional appeal",
+            "count": 4,
+            "pct": 0.39
+          },
+          {
+            "value": "Playing the victim",
+            "count": 4,
+            "pct": 0.39
+          },
+          {
+            "value": "Deflection, Evasion",
+            "count": 4,
+            "pct": 0.39
+          },
+          {
+            "value": "emotional appeal, persuasion",
+            "count": 4,
+            "pct": 0.39
+          },
+          {
+            "value": "minimization, persuasion",
+            "count": 4,
+            "pct": 0.39
+          },
+          {
+            "value": "Minimization, Evasion",
+            "count": 3,
+            "pct": 0.29
+          },
+          {
+            "value": "evasion, persuasion",
+            "count": 3,
+            "pct": 0.29
+          },
+          {
+            "value": "gaslighting, deflection",
+            "count": 3,
+            "pct": 0.29
+          },
+          {
+            "value": "minimization, deflection",
+            "count": 3,
+            "pct": 0.29
+          },
+          {
+            "value": "Gaslighting, Evasion",
+            "count": 3,
+            "pct": 0.29
+          },
+          {
+            "value": "deflection,minimization",
+            "count": 3,
+            "pct": 0.29
+          },
+          {
+            "value": "Gaslighting, Minimization",
+            "count": 3,
+            "pct": 0.29
+          },
+          {
+            "value": "minimization,deflection",
+            "count": 3,
+            "pct": 0.29
+          },
+          {
+            "value": "Character attack",
+            "count": 3,
+            "pct": 0.29
+          },
+          {
+            "value": "Emotional Appeal",
+            "count": 3,
+            "pct": 0.29
+          },
+          {
+            "value": "deflection, minimization, persuasion",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "Minimization, deflection",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": ", deflection",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "deflection, persuasion",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "deflection, gaslighting",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "deflection, gaslighting,playing the victim",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "Deflection, Minimization, Persuasion",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "Guilt tripping",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "Dismissal",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "Framing the narrative",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "evasion,deflection",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "evasion, deflection, gaslighting",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "emotional appeal, deflection, minimization",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "Persuasion, Emotional Appeal",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "Deflection, Evasion, Minimization",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "persuasion",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "evasion, dismissal, persuasion, gaslighting",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "Character attack, Deflection",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "Dismissal, Minimization",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "Minimization, Deflection, Evasion",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "Evasion,Deflection , Playing the Victim",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "persuasion, coercion",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "Evasion, deflection, gaslighting, playing the victim",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "Evasion, Deflection,Playing the Victim, ",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": "minimization, gaslighting, persuasion",
+            "count": 2,
+            "pct": 0.19
+          },
+          {
+            "value": " gaslighting, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization,Deflection, dismissal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization deflection persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "character attack, playing the victim, gaslighting, dismissal, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization,Deflection ,Emotional Framing",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, Guilt Tripping",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": " Gaslighting,Minimization,Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization, gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection , Minimization, Emotional Appeal, Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, dismissal, minimization, exaggeration, emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "  Evasion, deflection, gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim, emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": ", playing the victim, gaslighting, minimization, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Persuasion, Emotional appeal, Evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional Appeal, Evasion, Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, deflection, gaslighting ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, gaslighting,emotional appeal, plaing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, Playing the victim role, Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": ", Evasion, Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, dismissal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "exaggeration, guilt tripping",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal, deflection, gaslighting, plaing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal, playing the victim, gaslighting, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Playing the victim, Framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Framing the narrative, Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection,Playing the Victim ,Gaslighting,Guilt-Tripping",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": ", Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "framing the Narrative,Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim, exaggeration, evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection & Evasion,Playing the Victim ,Gaslighting ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting, Emotional Appeal, Deflection, Minimization, Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Playing the victim, Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal,exaggeration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, deflection, gaslighting, , playing the victim ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Framing the narrative, Playing the victim role",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, Framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, Minimization, Playing the victim, Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim, exaggeration, evasion, persuasion, framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Guilt tripping, Playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion , playing the victim, gaslighting, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization, guilt-tripping, playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, deflection, , playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim, minimization, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting, Playing the victim, Deflection, Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional appeal, persuasion, exaggeration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, minimization, persuasion evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Guilt-Tripping,Exaggeration,Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting, Minimization, Deflection Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting,Minimization ,Deflection ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "framing the narrative, playing the victim, deflection, persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting , Deflection ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "gaslighting, minimization, persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": ", deflection, gaslighting, playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional Appeal, Deflection, Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, Deflection, ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, dismissal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization, dismissal, gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Playing the Victim ,Deflection ,Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal, guilt-tripping",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Playing the victim, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "gaslighting, evasion, deflection, framing the narrative, minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection , exxageration, emotional appeal, minimization, ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting, Character attack",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "guilt tripping, deflection, minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Guilt-Tripping",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "persuasion, exaggeration ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, playing the victim, , gaslighting ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": ", Deflection, Gaslighting, Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional Appeal, Persuasion, deflection, Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appealing, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "gaslighting , emotional appeal, playing the victim ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection  minimization,Gaslighting,Evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection,gaslighting,plaing the victim,emotional appeal, exaggeration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Deflection, Gaslighting, Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "exaggeration, deflection, gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal, framing the narrative, minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Gaslighting Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, Evasion, Emotional Appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion & Deflection,Guilt-Tripping,Playing the Victim,Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, Persuasion Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization, deflection, dismissal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization, dismissal ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion,playing the victim, gaslighting, emtional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, minimization, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection,minimization.",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, deflection, gaslighting, playing the victim,",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Playing the victim, Emotional appeal, Minimization, Persuasion, Framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Playing the victim role, Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting,Deflection & Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "framing the narrative, playing the victim, gaslighting, guilt-tripping, emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting, Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Playing the victim, Emotional Appeal, Minimization, Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "accuasation",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion,Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional Appeal Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Character attack, Exaggeration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection,  gasligting, evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting, Framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, Playing the victim, Emotional Appeal, Minimization, Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, minimization, emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, evasion , gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal, playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization Evasion Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim, minimization, gaslighting, deflection, persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, dismissal, persuasion ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting,Deflection,playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection Minimization persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Gaslighting, Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, Playing the victim role",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Guilt tripping, Emotional blackmailing, Gaslighting, Playing the Victim role",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": " persuasion, minimization, framing the narrative, evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim, emotional appeal, evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection , Minimization, Evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, Minimization, Gaslighting, Dismissal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection Playing the Victim,Emotional Appeal, framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization, deflection, gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection Persuasion Coercion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting Minimization Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "gaslighting , deflection, playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal, deflection, persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "framing the narrative, deflection, minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "framing the narrative, character attack, gaslighting, minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting, Playing the victim role",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal deflection framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Exaggeration,Gaslighting,Deflection, playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Playing the victim, Deflection Evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Guilt-Tripping,Deflection ,Playing the Victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection,gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, Minimization, Emotional Appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, evasion, persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim , emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, deflection,emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "exaggeration, minimization,gaslighting,playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, deflection, framing the narrative, persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization, Playing the victim, Defendant, Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal, evasion, persuasion, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting, Minimization, Dismissal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting,Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "coercion, gaslighting, guilt tripping , persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Playing the victim role, Emotional Appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Playing the Victim,Deflection, Emotional Appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "persuasion, deflection, gaslighting, playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion & Deflection,Gaslighting,Playing the Victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection,evasion, playing the victim, gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "framing the narrative, evasion, persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection minimization playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "gaslighting, framing the narrative, emotional appeal, evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Persuasion Framing the narrative Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal,minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "persuasion, framing the narrative, evasion, minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting, Playing the victim, Deflection Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, Deflection, Character attack",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "plaing the victim, guilt tripping, exaggeration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional Appeal, Minimization, Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "persuasion, framing the narrative, dismissal, exaggeration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, Playing the victim, Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Coercion, Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": " Exaggeration , emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection,Gaslighting Evasion,Playing the Victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Playing the victim role, Persuasion, Guilt tripping",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection,persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "exaggeration, framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, deflection, gaslighting, emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, character attack, evasion, minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "exaggeration, emotional appeal, playing the victim role",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion ,Playing the Victim ,Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization Deflection Evasion Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim, deflection, gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "guilt tripping, playing the victim, gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal,framing narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection ,Exaggeration ,Playing the Victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "persuasion playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, Gaslighting, Minimization, Persuasion, Evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "exaggeration, gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": ", gaslighting, playing the victim, emotional appeal, minimization persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "persuasion, evasion, gaslighting, emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion Deflection Emotional Appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, playing the victim, evasion, emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, Emotional Appeal, Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, Emotional appeal, Framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection Minimization  ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, exxageration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, evasion, gaslighting, minimization, persuasion, emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional Appeal Framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, Deflection,Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim,Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional Appeal, Playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim, gaslighting,deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion,Deflection,Playing the Victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization, evasion, gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal,Exaggeration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection,emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization, deflection, playing the victim gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, Gaslighting, Evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Persuasion Playing the victim Minimization Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting, Guilt tripping, Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization, gaslighting,",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, emotional appeal, guilt - tripping",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, Deflection, Emotional Appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "gaslighting, playing the victim, persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, exxaggeration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional appeal, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Exaggeration, Dismissal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, Gaslighting, Playing the victim, Coercion Emotional Appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Intimidation, Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, gaslighting, minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Framing the narrative, Emotional appeal Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting Deflection Evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional Appeal, Deflection, Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection Minimization Playing the Victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion , Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, minimization, evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": " evasion, deflection, persuasion, framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, Minimization, Evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Guilt tripping",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional Appeal, Guilt Tripping",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, Evasion, Emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting Coercion Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim, deflection, emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, minimization, dismissal, evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": " exaggeration,emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization, evasion, deflection, playing the victim, persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim,deflection,emotional appeal,gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional Appeal, Playing the victim, Gaslighting, Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim, deflection, evasion, exaggeration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection & Playing the Victim,Evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "persuasion, exaggeration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection,Emotional Appeal,Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": " playing the victim, evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Playing the victim role Emotional Appeal Deflection Evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Playing the victim, Deflection, Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Guilt-Tripping,Evasion & Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "appeal to emotionExaggeration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "exaggeration, playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection , Minimization, Gaslighting , Evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "gaslighting, framing the narrative, playing the victim, minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Persuasion, Deflection, Evasion, Emotional Appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional Appeal,Evasion ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, emotional appeal, playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, deflection, playing the victim, emotional appeal, gaslighting, minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, guilt tripping, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional Appeal, Framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection,gaslighting,emotional appeal , plaing the victiim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim, gaslighting,  character attack",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, gaslighting,deflection , plaing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "exaggeration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection Minimization,Evasion ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting, Playing the Victim,Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional Appeal ,Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, Minimization, Emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization, playing the victim, emotional appeal, evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion,Deflection,Minimization,Framing the Narrative,Playing the Victim,Dismissal ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Deflection, Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "gaslighting, guilt-tripping, playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, deflection, playing the victim ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": " Evasion, deflection, playing the victim,",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection Minimization Emotional Appeal Dismissal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection , Gaslighting, Minimization, Evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, Deflection, Playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional Appeal, playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Character attack, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Exaggeration ,Deflection , Minimization,Playing the Victim ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting, Deflection, Evasion, Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, Playing the victim, Gaslighting, Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion,Deflection,Gaslighting ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Dismissal, Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection,minimization,evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, emotional appeal, framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, minimization, framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Character attack, Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, persuasion, coercion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, emotional appeal, exaggeration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "gaslighting, deflection, , evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, playing the victim , emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": ", emotional appeal, playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, playing the victim, framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, playing the victim, gaslighting, persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim, deflection, framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Framing the narrative, Deflection, Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization,Deflection,Evasion,Playing the Victim,Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, gaslighting, emotional appeal, persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "exaggeration, gaslighting,playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Deflection , Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal, framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Emotional Appeal, Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "exxageration, emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection , exaggeration, persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, persuasion. ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Playing the victim role, Evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, deflection,minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection ,minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Guilt tripping, Emotional appeal, Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "gaslighting,victim playing,deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Character Attack, Playing the victim role",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, Deflection, Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, deflection,playing the victim,gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection , evasion,Playing the Victim,emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Character Attack, Playing the victim role, Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Guilt tripping, Emotional , appealing",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal, persuasion, evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, minimization, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional appeal, Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Exaggeration,Playing the Victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "persuasion, emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional appeal,playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal, exaggeration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection & Evasion,Playing the Victim ,Guilt-Tripping,Gaslighting ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting,Deflection,Gaslighting ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": ", Guilt Tripping, Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion,deflection,gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, minimization, coercion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "gaslighting, persuasion, evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Gaslighting, Deflection, Minimization, Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting, Playing the Victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection Evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion,Deflection,Minimization,Framing the Narrative,Playing the Victim,Dismissal , emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, Playing the victim, Minimization, Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "dismissal, minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection,evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "exaggeration, emotional appeal, framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal,playing the victim, evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "persuasion, evasion, emotional appeal, exaggeration, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional Appeal, Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection , evasion,minimization, gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion,Deflection,Playing the Victim,Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal ,playing the victim,deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "guilt, deflection, playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "exxageration,playing the victim,evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": " evasion, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "framing the narrative, evasion, deflection, playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": " minimization , deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional Appeal, Evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, deflection, gaslighting,  playing the victim ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, guilttripping",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Dismissal, Gaslighting, Framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Framing the narrative, Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Playing the victim Emotional appeal Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection ,Minimizing, evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection Dismissal Evasion Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting Dismissal Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, deflection, gaslighting,guilt tripping",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": " guilt tripping, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Dismissal, Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "framing, dismissal, persuasion, , exaggeration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Coercion, Deflection, Minimization Evasion, ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization, deflection, evasion, gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion,, Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion,exaggeration,playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion,deflection, playing the victim,gaslighting, emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion,gaslighting,deflection,plaing the victim, emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, minimization,gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization, deflection, persuasion, emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, evasion,gaslighting,",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion,Deflection, Emotional Appeal ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim, deflection, minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "gaslighting, evasion, emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "exaggeration,emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, deflection, exaggeration, framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, minimization, exaggeration, playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Playing the victim role, Character attack",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection,Playing the Victim , Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "gaslighting, emotional appeal, persuasion, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection,Playing the Victim ,Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting,Deflection,Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion,Deflection,Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection Dismissal Minimization Emotional Appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim, emotional appeal, exaggeration, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Deflection Dismissal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, exaggeration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Playing the victim role, deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, gaslighting, deflection, emotional appeal, , playing the victim.",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, playing the victim,gaslighting, evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Playing the victim role, Exaggeration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim, emotional appeal, persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Deflection, Evasion, Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Gaslighting , Deflection ,Evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, evasion, gaslighting,playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection,Evasion ,Guilt-Tripping,Playing the Victim,Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Playing the victim, Gaslighting, Minimization, Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, gaslighting, evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, playing the victim, gaslighting ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": " deflection, guilt-tripping",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Guilt-Tripping & Emotional Appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional appeal, framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional Appeal, Playing the victim, Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": " Deflection, evasion, gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Persuasion Emotional Appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection ,Playing the Victim ,Minimization ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection, minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, gaslighting, emotion appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Deflection, Evasion, Emotional Appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection playing the victim persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Emotional Appeal, Persuasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion,Deflection ,Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "persuasion, exaggeration, playing the victim, framing the narrative",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization, playing the victim, emotional appeal, deflection, exxageration",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "framing the narrative, dismissal, persuasion, evasion",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion,Playing the Victim,Gaslighting ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Guilt-Tripping,Deflection,Playing the Victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection,playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Evasion, deflection, playing the victim, , gaslighting.",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "minimization, playing the victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Emotional appeal , Deflection",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "evasion, defelction, guilt tripping, playing the victim, gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection Dismissal Evasion   ",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "playing the victim,Minimization",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Gaslighting",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "deflection, gaslighting, Playing the victim, Emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Deflection , Gaslighting, Minimization ,Playing the Victim",
+            "count": 1,
+            "pct": 0.1
+          },
+          {
+            "value": "Minimization, Persuasion, Emotional appeal",
+            "count": 1,
+            "pct": 0.1
+          }
+        ]
+      }
+    },
+    "text_stats": {
+      "Dialogue": {
+        "count": 1038,
+        "empty_count": 0,
+        "empty_pct": 0.0,
+        "char_len_mean": 5000.65,
+        "char_len_median": 5246.0,
+        "char_len_min": 177,
+        "char_len_max": 13757,
+        "word_len_mean": 880.67,
+        "word_len_median": 931.0,
+        "word_len_min": 35,
+        "word_len_max": 2742
+      }
+    },
+    "annotation_level": "Conversation/transcript-level (one label set per entire Dialogue field, not per turn or span).",
+    "manipulation_techniques_multivalue_note": {
+      "rows_with_more_than_one_technique_listed": 501,
+      "rows_empty": 402,
+      "raw_values_not_normalised": true
+    }
+  },
+  "tea_dialog": {
+    "file": "data\\raw\\tea_dialog\\TEA-Dialog.json",
+    "file_size_bytes": 8859514,
+    "record_unit": "One JSON object = one simulated emotional-support scenario/dialogue (a scene, a location/time context, and a full conversation between a 'user' and an 'assistant' role).",
+    "top_level_type": "list",
+    "n_records": 365,
+    "keys_per_record": [
+      "scene",
+      "description",
+      "time",
+      "city",
+      "place_type",
+      "location",
+      "tz",
+      "task_id",
+      "user_type",
+      "raw_messages",
+      "content_messages",
+      "end_reason",
+      "scores",
+      "content",
+      "all_hallucination",
+      "content_hallucination",
+      "source_file"
+    ],
+    "keys_consistent_across_records": true,
+    "raw_messages_structure": {
+      "roles_found": {
+        "system": 365,
+        "user": 1882,
+        "assistant": 1938,
+        "tool": 423
+      },
+      "turns_per_record_min": 6,
+      "turns_per_record_max": 32,
+      "turns_per_record_mean": 12.62,
+      "note": "Includes a leading 'system' role (the assistant's persona instructions), plus 'user' and 'assistant' turns."
+    },
+    "content_messages_structure": {
+      "roles_found": {
+        "user": 1518,
+        "assistant": 1518
+      },
+      "turns_per_record_min": 4,
+      "turns_per_record_max": 30,
+      "turns_per_record_mean": 8.32,
+      "note": "user/assistant turns only (system prompt excluded)."
+    },
+    "evaluation_scores": {
+      "Diversity": {
+        "n_total": 365,
+        "n_missing": 0,
+        "n_missing_pct": 0.0,
+        "mean": 3.09,
+        "median": 3.0,
+        "min": 3.0,
+        "max": 4.0
+      },
+      "Effectiveness": {
+        "n_total": 365,
+        "n_missing": 0,
+        "n_missing_pct": 0.0,
+        "mean": 3.918,
+        "median": 4.0,
+        "min": 3.0,
+        "max": 4.0
+      },
+      "Fluency": {
+        "n_total": 365,
+        "n_missing": 0,
+        "n_missing_pct": 0.0,
+        "mean": 3.942,
+        "median": 4.0,
+        "min": 3.0,
+        "max": 4.0
+      },
+      "Humanoid": {
+        "n_total": 365,
+        "n_missing": 0,
+        "n_missing_pct": 0.0,
+        "mean": 4.0,
+        "median": 4.0,
+        "min": 4.0,
+        "max": 4.0
+      },
+      "Information": {
+        "n_total": 365,
+        "n_missing": 0,
+        "n_missing_pct": 0.0,
+        "mean": 3.178,
+        "median": 3.0,
+        "min": 3.0,
+        "max": 4.0
+      }
+    },
+    "content_field": {
+      "note": "Top-level 'content' is a numeric score (not message text); meaning is not documented locally.",
+      "n_total": 365,
+      "n_missing": 0,
+      "n_missing_pct": 0.0,
+      "mean": 77.613,
+      "median": 75.0,
+      "min": 0.0,
+      "max": 100.0
+    },
+    "hallucination_fields": {
+      "all_hallucination": {
+        "n_total": 365,
+        "n_missing": 0,
+        "n_missing_pct": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "content_hallucination": {
+        "n_total": 365,
+        "n_missing": 0,
+        "n_missing_pct": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "end_reason_distribution": {
+      "n_unique_values": 2,
+      "n_total": 365,
+      "distribution": [
+        {
+          "value": "user_end",
+          "count": 364,
+          "pct": 99.73
+        },
+        {
+          "value": "max_turn",
+          "count": 1,
+          "pct": 0.27
+        }
+      ]
+    },
+    "text_stats_description": {
+      "count": 365,
+      "empty_count": 0,
+      "empty_pct": 0.0,
+      "char_len_mean": 242.81,
+      "char_len_median": 231.0,
+      "char_len_min": 180,
+      "char_len_max": 443,
+      "word_len_mean": 42.77,
+      "word_len_median": 39.0,
+      "word_len_min": 36,
+      "word_len_max": 81
+    },
+    "manipulation_labels_present": false,
+    "role_assessment": "No manipulation or harm labels of any kind are present. Usable as benign emotional-support / hard-negative reference data (realistic supportive dialogue that should NOT be flagged as manipulative), not as manipulation-labelled training data."
+  },
+  "illusions_of_intimacy": {
+    "file": "data\\raw\\illusions_of_intimacy\\README.txt",
+    "local_data_availability": "documentation only; no dataset file present locally",
+    "readme_text": "# Illusions of Intimacy\n\nThe full dataset is not publicly downloadable.\n\nPublished corpus statistics:\n- 39,554 conversations\n- 216,345 turns\n\nEmotionally salient subset:\n- 17,822 conversations\n- 114,268 turns\n\nThe authors state that the full anonymized dataset is restricted\nto approved research use under data-use agreements.\n\nA public sample is referenced by the paper, but no complete\ndownloadable dataset is currently available to us.\n\nSource:\nhttps://arxiv.org/abs/2505.11649",
+    "published_statistics_mentioned_in_readme": [
+      [
+        "39,554",
+        "conversations"
+      ],
+      [
+        "216,345",
+        "turns"
+      ],
+      [
+        "17,822",
+        "conversations"
+      ],
+      [
+        "114,268",
+        "turns"
+      ]
+    ],
+    "note": "Any conversation/turn counts quoted in the README describe the PUBLISHED corpus, not data available in this repository. They must not be counted as locally available records."
+  },
+  "cross_dataset_summary": {
+    "ai_companion_bench": {
+      "records": 2123,
+      "conversations": "N/A (excerpt-level; 'id' is source post, not conversation)"
+    },
+    "chatbotmanip": {
+      "conversations": 746,
+      "survey_annotations": 719
+    },
+    "companion_harm": {
+      "total_utterances": 7016,
+      "unique_conversations": 2111
+    },
+    "claim_legalcon": {
+      "records": 1038
+    },
+    "tea_dialog": {
+      "records": 365
+    },
+    "illusions_of_intimacy": {
+      "records_locally_available": 0
+    }
+  }
+}
